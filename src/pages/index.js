@@ -1,7 +1,6 @@
-export default function Home() {
-  return (
-    <>
-      Get started by editing src/pages/index.js
-    </>
-  );
+import List from '../copmonent/list'
+const Index = () => {
+  return <List></List>
 }
+export default Index
+
