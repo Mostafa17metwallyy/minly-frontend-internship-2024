@@ -3,11 +3,16 @@ import Checkbox from '@mui/material/Checkbox';
 import { useState } from 'react';
 import Button from '@mui/material/Button';
 
-export const ListItem = ({ text, id, setTodo, delItem, editItem, todo }) => {
-  const [checked, setChecked] = useState(false);
-  const handleChange = (event) => {
-    setChecked(event.target.checked);
-  };
+export const ListItem = ({
+  text,
+  id,
+  setTodo,
+  delItem,
+  editItem,
+  todo,
+  items,
+  checked,
+}) => {
   const [editText, setEditText] = useState(text);
 
   const [isEditMode, setIsEditMode] = useState(false);
@@ -35,12 +40,11 @@ export const ListItem = ({ text, id, setTodo, delItem, editItem, todo }) => {
         style={{
           display: 'flex',
           justifyContent: 'space-between',
-          alignItems: 'center',
         }}
       >
         <Checkbox
           checked={checked}
-          onChange={handleChange}
+          onChange={handleCheckboxChange}
           inputProps={{ 'aria-label': 'controlled' }}
         />
         {isEditMode ? (
@@ -51,13 +55,21 @@ export const ListItem = ({ text, id, setTodo, delItem, editItem, todo }) => {
         ) : (
           <p>{text}</p>
         )}
-
-        <Button variant="contained" onClick={() => delItem(id)}>
-          Delete
-        </Button>
-        <Button variant="contained" onClick={handleEdit}>
-          Edit
-        </Button>
+        <div>
+          <Button
+            variant="contained"
+            onClick={() => delItem(id)}
+            style={{
+              backgroundColor: 'red',
+              float: 'right',
+            }}
+          >
+            Delete
+          </Button>
+          <Button variant="contained" onClick={handleEdit}>
+            Edit
+          </Button>
+        </div>
       </div>
     </>
   );

@@ -6,23 +6,23 @@ import Index from '@/pages';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-
+import Select from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
 
 const items = [
-  { id: 1, text: 'Learn React',checked:false },
-  { id: 2, text: 'Learn React Native', checked:false},
-  { id: 3, text: 'Learn Redux',checked:false },
-  { id: 4, text: 'Learn Node' ,checked:false},
-  { id: 5, text: 'Learn GraphQL' ,checked:false},
+  { id: 1, text: 'Learn React', checked: false },
+  { id: 2, text: 'Learn React Native', checked: false },
+  { id: 3, text: 'Learn Redux', checked: false },
+  { id: 4, text: 'Learn Node', checked: false },
+  { id: 5, text: 'Learn GraphQL', checked: false },
 ];
 
 export const TodoList = () => {
   const [todoList, setTodoList] = useState(items);
   const [newTodoText, setNewTodoText] = useState('');
   const [filter, setFilter] = useState('all');
-  
 
-  console.log(todoList)
+  console.log(todoList);
 
   const addNewTodo = () => {
     const newItem = { id: Date.now(), text: newTodoText };
@@ -36,7 +36,9 @@ export const TodoList = () => {
 
   const editItem = (id, newText) => {
     setTodoList(
-      todoList.map((item) => (item.id === id ? { ...item, text: newText } : item))
+      todoList.map((item) =>
+        item.id === id ? { ...item, text: newText } : item
+      )
     );
   };
 
@@ -44,7 +46,7 @@ export const TodoList = () => {
     setFilter(e.target.value);
   };
 
-  const filteredTodoList = todoList.filter(item => {
+  const filteredTodoList = todoList.filter((item) => {
     if (filter === 'checked') {
       return item.checked;
     } else if (filter === 'unchecked') {
@@ -62,23 +64,38 @@ export const TodoList = () => {
         style={{
           display: 'flex',
           justifyContent: 'space-between',
-          alignItems: 'center',
+          alignItems:'center',
+          margin:'30px'
         }}
       >
         <TextField
           value={newTodoText}
           onChange={(e) => setNewTodoText(e.target.value)}
+          style={{
+            width: '60%',
+            marginRight: '10px',
+
+          }}
         />
 
-        <Button variant="contained" onClick={addNewTodo}>Add Item</Button>
-        <select value={filter} onChange={handleFilterChange}>
-          <option value="all">All</option>
-          <option value="checked">Checked</option>
-          <option value="unchecked">Unchecked</option>
-        </select>
+        <Button variant="contained" onClick={addNewTodo} style={{
+          width:'15%'
+        }}>
+          Add Item
+        </Button>
+        <Select value={filter} onChange={handleFilterChange} style={{
+          width: '15%',
+          marginRight: '10px',
+        }}>
+          <MenuItem value={'all'}>All</MenuItem>
+          <MenuItem value={'checked'}>Checked</MenuItem>
+          <MenuItem value={'unchecked'}>Unchecked</MenuItem>
+        </Select>
       </div>
 
-      <div>
+      <div style={{
+        margin:'30px'
+      }}>
         {filteredTodoList.map((item) => (
           <ListItem
             text={item.text}
@@ -88,6 +105,7 @@ export const TodoList = () => {
             editItem={editItem}
             todo={todoList}
             checked={item.checked}
+            items={items}
           />
         ))}
       </div>
