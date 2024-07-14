@@ -1,6 +1,6 @@
 import List from '../copmonent/list'
 const Index = () => {
-  return <List></List>
+  return <List/>
 }
 export default Index
 
