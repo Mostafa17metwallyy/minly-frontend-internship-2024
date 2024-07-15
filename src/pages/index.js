@@ -1,4 +1,6 @@
 import MoviesList from '..//component/movieList';
+import { styled, alpha } from '@mui/material/styles';
+import Pagination from '@mui/material/Pagination';
 
 export default function Home() {
   const movies = [
@@ -128,17 +130,20 @@ export default function Home() {
           margin: '50px',
         }}
       >
-        <div style={{
-          display: 'flex',
-          gap:'120px'
-        }}>
-        <h1
+        <div
           style={{
-            color: 'rgba(65, 140, 251, 1)',
+            display: 'flex',
+            gap: '120px',
           }}
         >
-          MMDB
-        </h1>
+          <h1
+            style={{
+              color: 'rgba(65, 140, 251, 1)',
+            }}
+          >
+            MMDB
+          </h1>
+          <search />
         </div>
         <h2
           style={{
@@ -148,6 +153,15 @@ export default function Home() {
           All Movies
         </h2>
         <MoviesList movies={movies} />
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            marginTop: '20px',
+          }}
+        >
+          <Pagination count={10} variant="outlined" shape="rounded" />
+        </div>
       </div>
     </>
   );
