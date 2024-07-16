@@ -1,31 +1,36 @@
 import { Typography } from '@mui/material';
 import React, { useState } from 'react';
 import Rating from '@mui/material/Rating';
+import { useEffect } from 'react';
 
-const MoviesList = ({ movies }) => {
+const MoviesList = ({ records }) => {
   const [hoveredMovie, setHoveredMovie] = useState(null);
 
   const gridStyle = {
     display: 'grid',
     gridTemplateColumns: 'repeat(4, 1fr)', // Ensures a maximum of 4 items per row
-    gap: '40px',
+    gap: '19px',
     justifyContent: 'center',
+    width:'100%',
+    height:"951px"
   };
 
   const itemStyle = {
     textAlign: 'center',
-    padding: '10px',
+    padding: '12px',
     boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)',
     borderRadius: '10px',
     backgroundColor: '#fff',
     color: 'rgba(0, 48, 85, 1)',
     transition: 'transform 0.2s ease-in-out', // Smooth transition effect
     transform: 'scale(1)',
+    width:"278px",
+    height:"500px"
   };
 
   const imgStyle = {
-    width: '278px',
-    height: '464px',
+    width: '256px',
+    height: '344px',
     borderRadius: '10px',
   };
 
@@ -43,10 +48,16 @@ const MoviesList = ({ movies }) => {
 
   return (
     <div style={gridStyle}>
-      {movies.map((movie) => (
-        <div key={movie.id} style={{ ...itemStyle, ...(hoveredMovie === movie.id && imgHoveredStyle) }}>
+      {records.map((movie) => (
+        <div
+          key={movie.id}
+          style={{
+            ...itemStyle,
+            ...(hoveredMovie === movie.id && imgHoveredStyle),
+          }}
+        >
           <img
-            src={movie.poster}
+            src={movie.moviePoster}
             alt={movie.name}
             style={imgStyle}
             onMouseEnter={() => handleMouseEnter(movie.id)}
@@ -54,15 +65,15 @@ const MoviesList = ({ movies }) => {
           />
           <div style={{ textAlign: 'left' }}>
             <Typography component="legend"></Typography>
-            <Rating name="read-only" value={movie.id} readOnly />
+            <Rating name="read-only" value={movie.rating} readOnly />
             <h3
               style={{
                 color: 'rgba(26, 44, 89, 1)',
               }}
             >
-              {movie.name}
+              {movie.title}
             </h3>
-            <p> {movie.year}</p>
+            <p> {movie.releaseDate}</p>
           </div>
         </div>
       ))}
