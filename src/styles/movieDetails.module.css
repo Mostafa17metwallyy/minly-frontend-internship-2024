@@ -1,0 +1,32 @@
+
+.movieDetails {
+  display: flex; 
+  flex-wrap: wrap; 
+  margin: 20px;
+  padding: 30px;
+}
+
+.movieDetails img {
+  width: 308.35px; 
+  height: 416px; 
+  margin: 32px;
+}
+
+.movieDetailsInfo .trailer {
+  margin-top: 10px; 
+}
+
+.movieDetailsInfo .trailer iframe {
+  width: 100%; 
+  height: 300px; 
+}
+
+
+.movieDetailsInfo { 
+  padding: 10px;
+}
+
+.movieDetailsInfo h1,
+.movieDetailsInfo p {
+  margin-bottom: 5px;
+}

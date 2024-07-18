@@ -1,0 +1,66 @@
+.container {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    padding-top: 20px;
+    align-items: center;
+  }
+  
+  .innerContainer {
+    width: 100%;
+    margin: 0 auto;
+    gap: 23px;
+  }
+  
+  .header h1 {
+    color: rgba(255, 255, 255, 1);
+    text-align: center;
+  }
+  
+  .subHeader {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .subHeader h2 {
+    color: rgba(0, 48, 85, 1);
+    margin: 0px;
+  }
+  
+  .select {
+    align-items: center;
+    padding: 1px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    background-color: #fff;
+    box-shadow: none;
+    width: 90%;
+    cursor: pointer;
+  }
+  
+  .moviesList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .movieItem {
+    width: 200px;
+    text-align: center;
+  }
+  
+  
+  .pagination {
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .mainDiv{
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+  
+  
