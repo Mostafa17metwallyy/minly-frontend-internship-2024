@@ -51,7 +51,7 @@ const MoviesList = ({ records }) => {
   return (
     <div style={gridStyle}>
       {records.map((movie) => (
-        <Link key={movie.id} href={`/movie/${movie.uuId}`} legacyBehavior>
+        <Link key={movie.id} href={`/movieDetails/${movie.uuId}`} legacyBehavior>
           <a
             style={{ textDecoration: 'none', color: 'inherit' }}
             onMouseEnter={() => handleMouseEnter(movie.id)}

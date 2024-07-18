@@ -24,6 +24,7 @@ const MovieDetails = () => {
   return (
     <div>
       <SearchAppBar />
+      <br/>
       <div className={styles.movieDetails}>
         <img
           src={movie.moviePoster}

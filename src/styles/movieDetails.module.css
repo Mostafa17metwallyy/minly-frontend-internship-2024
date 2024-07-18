@@ -1,32 +1,51 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px auto; /* Center container with equal margin */
+  font-family: Arial, sans-serif;
+  width: 90%;
+  max-width: 1200px; /* Set a max-width for better layout on larger screens */
+  height: auto; /* Adjust height based on content */
+  padding: 20px; /* Add padding for inner spacing */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  background-color: #fff; /* Set a background color */
+  opacity: 1;
+}
 
 .movieDetails {
-  display: flex; 
-  flex-wrap: wrap; 
-  margin: 20px;
-  padding: 30px;
+  display: flex;
+  width: 90%;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-inline: auto;
 }
 
 .movieDetails img {
-  width: 308.35px; 
-  height: 416px; 
-  margin: 32px;
+  width: 308.35px;
+  height: 416px;
+  top: 32px;
+  left: 32px;
+  gap: 0px;
+  opacity: 0px;
+  border-radius: 8px;
+  margin-right: 20px;
 }
 
-.movieDetailsInfo .trailer {
-  margin-top: 10px; 
+.movieDetails .trailer {
+  width: 768px;
+  height: 415px;
+  top: 32px;
+  left: 370px;
+  gap: 0px;
+  border-radius: 10px 0px 0px 0px;
+  opacity: 0px;
 }
 
-.movieDetailsInfo .trailer iframe {
-  width: 100%; 
-  height: 300px; 
-}
-
-
-.movieDetailsInfo { 
-  padding: 10px;
-}
-
-.movieDetailsInfo h1,
-.movieDetailsInfo p {
-  margin-bottom: 5px;
+.movieDetailsInfo {
+  flex: 1;
+  /* padding: 10px; */
 }
