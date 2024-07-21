@@ -25,17 +25,16 @@
   
   .subHeader h2 {
     color: rgba(0, 48, 85, 1);
-    margin: 0px;
   }
   
   .select {
     align-items: center;
     padding: 1px;
     border: 1px solid #ccc;
-    border-radius: 20px;
+    border-radius: 60px;
     background-color: #fff;
     box-shadow: none;
-    width: 90%;
+    width: 100%;
     cursor: pointer;
   }
   
