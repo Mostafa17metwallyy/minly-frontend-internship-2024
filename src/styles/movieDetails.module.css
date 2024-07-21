@@ -4,8 +4,8 @@
   align-items: center;
   margin: 20px auto; /* Center container with equal margin */
   font-family: Arial, sans-serif;
-  width: 90%;
-  max-width: 1200px; /* Set a max-width for better layout on larger screens */
+  width: 100%;
+  max-width: 1170px; /* Set a max-width for better layout on larger screens */
   height: auto; /* Adjust height based on content */
   padding: 20px; /* Add padding for inner spacing */
   border-radius: 10px;
@@ -15,37 +15,40 @@
 }
 
 .movieDetails {
-  display: flex;
-  width: 90%;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: grid;
+  grid-template-columns: 308.35px 1fr; /* Two columns: one for the poster, one for the trailer and text */
+  grid-template-rows: auto auto; /* Two rows: one for the poster and trailer, one for the text */
+  gap: 20px; /* Add some gap between the grid items */
+  width: 1170px;
   padding: 20px;
   margin-inline: auto;
+  background-color: #fff;
+  border-radius: 10px 0px 0px 0px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
 }
 
 .movieDetails img {
+  grid-column: 1 / 2; /* Poster in the first column */
+  grid-row: 1 / 2; /* Poster in the first row */
   width: 308.35px;
   height: 416px;
-  top: 32px;
-  left: 32px;
-  gap: 0px;
-  opacity: 0px;
   border-radius: 8px;
   margin-right: 20px;
 }
 
-.movieDetails .trailer {
-  width: 768px;
-  height: 415px;
-  top: 32px;
-  left: 370px;
-  gap: 0px;
-  border-radius: 10px 0px 0px 0px;
-  opacity: 0px;
+.trailer {
+  grid-column: 2 / 3; /* Trailer in the second column */
+  grid-row: 1 / 2; /* Trailer in the first row */
+  width: 100%;
+  height: 416px; /* Match the height of the poster */
+  border-radius: 10px;
 }
 
 .movieDetailsInfo {
-  flex: 1;
-  /* padding: 10px; */
+  grid-column: 1 / 3; /* Text spans both columns */
+  grid-row: 2 / 3; /* Text in the second row */
+  display: flex;
+  flex-direction: column;
+  gap: 21px;
+  padding: 10px;
 }

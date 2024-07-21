@@ -12,7 +12,7 @@ export default function Home() {
   const [records, setRecords] = useState([]);
   const [page, setPage] = useState(1);
   const [sort, setSort] = useState('');
-  const [genre, setGenre] = useState('');
+ 
 
   const LIMIT = 8;
 
@@ -24,10 +24,7 @@ export default function Home() {
     setSort(event.target.value);
   };
 
-  const handleGenreChange = (event) => {
-    console.log(event);
-    setGenre(event.target.value);
-  };
+
 
   useEffect(() => {
     fetch(`http://localhost:3000/movies/paginated?page=${page}&limit=${LIMIT}`)
@@ -43,15 +40,7 @@ export default function Home() {
       .catch((err) => console.log(err));
   }, [sort]);
 
-  useEffect(() => {
-    if (genre) {
-      console.log(genre);
-      fetch(`http://localhost:3000/movies/${genre}`)
-        .then((response) => response.json())
-        .then((data) => setRecords(data))
-        .catch((err) => console.log(err));
-    }
-  }, [genre]);
+  
 
   return (
     <>
@@ -60,7 +49,7 @@ export default function Home() {
           <div className={styles.innerContainer}>
             <div className={styles.header}>
               <h1>
-                <SearchAppBar onChange={handleGenreChange} />
+                <SearchAppBar/>
               </h1>
             </div>
             <div className={styles.subHeader}>

@@ -24,25 +24,28 @@ const MovieDetails = () => {
   return (
     <div>
       <SearchAppBar />
-      <br/>
+      <br />
       <div className={styles.movieDetails}>
         <img
           src={movie.moviePoster}
           alt={`${movie.title} Poster`}
           className={styles.movieDetailsImg}
         />
+
         <div style={{ display: 'flex', flexDirection: 'column' }}>
           <div className={styles.trailer}>
             <iframe
-              width="560"
-              height="315"
+              width="768"
+              height="415"
               src={movie.trailer}
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             ></iframe>
           </div>
-          <div className={styles.movieDetailsInfo}>
+        </div>
+        <div className={styles.movieDetailsInfo}>
+          <div >
             <h1>{movie.title}</h1>
             <p>Release Date: {movie.releaseDate}</p>
             <p>Rating: {movie.rating}</p>
