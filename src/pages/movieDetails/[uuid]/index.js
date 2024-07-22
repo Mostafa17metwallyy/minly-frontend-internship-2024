@@ -54,6 +54,18 @@ const MovieDetails = () => {
             <p>Genre: {movie.genre}</p>
           </div>
         </div>
+        <div>
+          <h3>Cast</h3>
+          <div className={styles.castCards}>
+          {movie.actor.map(actor => (
+                <div key={actor.id} className={styles.actorCard}>
+                  <img src='https://m.media-amazon.com/images/M/MV5BNmM0ODA2YTktYWU4Mi00ZjA3LWFjYTYtOTJlZGY2Y2QwZTUzXkEyXkFqcGdeQXVyMTYzNTg1Nzk@._V1_FMjpg_UX1000_.jpg' 
+                  id={styles.image}></img>
+                  {actor.firstName}  {actor.lastName} 
+                </div>
+              ))}        
+          </div>
+        </div>
       </div>
     </div>
   );

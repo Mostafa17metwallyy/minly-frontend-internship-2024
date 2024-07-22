@@ -129,6 +129,7 @@ export default function SearchAppBar() {
             open={Boolean(anchorEl)}
             onClose={handleClose}
           >
+            <MenuItem onClick={handleGenreChange}>All</MenuItem>
             <MenuItem onClick={handleGenreChange}>Action</MenuItem>
             <MenuItem onClick={handleGenreChange}>Comedy</MenuItem>
             <MenuItem onClick={handleGenreChange}>Drama</MenuItem>
