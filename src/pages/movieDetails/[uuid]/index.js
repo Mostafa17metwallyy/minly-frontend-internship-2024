@@ -2,6 +2,7 @@ import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import styles from '@/styles/movieDetails.module.css';
 import SearchAppBar from '@/component/navBar';
+import Footer from '@/component/footer';
 
 const MovieDetails = () => {
   const router = useRouter();
@@ -67,6 +68,7 @@ const MovieDetails = () => {
           </div>
         </div>
       </div>
+      <Footer/>
     </div>
   );
 };

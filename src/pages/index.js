@@ -7,6 +7,7 @@ import Select from '@mui/material/Select';
 import { FormControl } from '@mui/material';
 import SearchAppBar from '@/component/navBar';
 import styles from '@/styles/movie.module.css';
+import Footer from '@/component/footer';
 
 export default function Home() {
   const [records, setRecords] = useState([]);
@@ -74,6 +75,7 @@ export default function Home() {
             </div>
           </div>
         </div>
+        <Footer/>
       </div>
     </>
   );
