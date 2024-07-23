@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import styles from '@/styles/movieDetails.module.css';
 import SearchAppBar from '@/component/navBar';
 import Footer from '@/component/footer';
+import StarIcon from '@mui/icons-material/Star';
 
 const MovieDetails = () => {
   const router = useRouter();
@@ -50,33 +51,52 @@ const MovieDetails = () => {
         </div>
         <div className={styles.movieDetailsInfo}>
           <div>
-            <h1>
-              <span className={styles.span}>{movie.title}</span>
-            </h1>
+            <div style={{
+              marginBottom:"50px"
+            }}>
+              <h1
+                style={{
+                  gap: '15px',
+                  display: 'flex',
+                  flexDirection: 'row',
+                }}
+              >
+                <span className={styles.span}>{movie.title}</span>
+                <span
+                  style={{
+                    color: 'rgba(105, 117, 134, 1)',
+                    fontSize: '24px',
+                    marginTop:'5px'
+                  }}
+                >
+                  ({movie.releaseDate})
+                </span>
+              </h1>
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  fontSize: '15px',
+                  gap: '3px',
+                  color: 'rgba(0, 48, 85, 1)',
+                }}
+              >
+                <span id={styles.starIcon}>
+                  <StarIcon />
+                </span>
+                {movie.rating} {movie.genre}
+              </div>
+            </div>
             <p>
-              {' '}
-              <span className={styles.span}> Release Date: </span>{' '}
-              {movie.releaseDate}
-            </p>
-            <p>
-              {' '}
-              <span className={styles.span}> Rating:</span> {movie.rating}
-            </p>
-            <p>
-              {' '}
-              <span className={styles.span}> Overview:</span>{' '}
+              <span className={styles.span}> Overview:</span>
             </p>
             <p id={styles.overview}>{movie.overview} </p>
             <p>
-              {' '}
               <span className={styles.span}> Language:</span> {movie.language}
-            </p>
-            <p>
-              <span className={styles.span}>Genre:</span> {movie.genre}
             </p>
           </div>
         </div>
-        <div id={styles.mainActorDiv}>
+        <div>
           <h3 className={styles.movieDetailsInfo}>Cast</h3>
           <div className={styles.castCards}>
             {movie.movieActorActors.map((actor) => (
@@ -86,10 +106,11 @@ const MovieDetails = () => {
                     src="https://m.media-amazon.com/images/M/MV5BNmM0ODA2YTktYWU4Mi00ZjA3LWFjYTYtOTJlZGY2Y2QwZTUzXkEyXkFqcGdeQXVyMTYzNTg1Nzk@._V1_FMjpg_UX1000_.jpg"
                     id={styles.image}
                   ></img>
-
                 </div>
                 <div id={styles.characterName}>
-                  <span>{actor.actor.firstName} {actor.actor.lastName}</span>
+                  <span>
+                    {actor.actor.firstName} {actor.actor.lastName}
+                  </span>
                   <h6>{actor.character} </h6>
                 </div>
               </div>
