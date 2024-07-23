@@ -13,7 +13,10 @@ const MovieDetails = () => {
     if (uuid) {
       fetch(`http://localhost:3000/movies/${uuid}`)
         .then((response) => response.json())
-        .then((data) => setMovie(data))
+        .then((data) => {
+          setMovie(data);
+          console.log(data);
+        })
         .catch((err) => console.log(err));
     }
   }, [uuid]);
@@ -46,29 +49,55 @@ const MovieDetails = () => {
           </div>
         </div>
         <div className={styles.movieDetailsInfo}>
-          <div >
-            <h1>{movie.title}</h1>
-            <p>Release Date: {movie.releaseDate}</p>
-            <p>Rating: {movie.rating}</p>
-            <p>Overview: {movie.overview}</p>
-            <p>Language: {movie.language}</p>
-            <p>Genre: {movie.genre}</p>
+          <div>
+            <h1>
+              <span className={styles.span}>{movie.title}</span>
+            </h1>
+            <p>
+              {' '}
+              <span className={styles.span}> Release Date: </span>{' '}
+              {movie.releaseDate}
+            </p>
+            <p>
+              {' '}
+              <span className={styles.span}> Rating:</span> {movie.rating}
+            </p>
+            <p>
+              {' '}
+              <span className={styles.span}> Overview:</span>{' '}
+            </p>
+            <p id={styles.overview}>{movie.overview} </p>
+            <p>
+              {' '}
+              <span className={styles.span}> Language:</span> {movie.language}
+            </p>
+            <p>
+              <span className={styles.span}>Genre:</span> {movie.genre}
+            </p>
           </div>
         </div>
-        <div>
-          <h3>Cast</h3>
+        <div id={styles.mainActorDiv}>
+          <h3 className={styles.movieDetailsInfo}>Cast</h3>
           <div className={styles.castCards}>
-          {movie.actor.map(actor => (
-                <div key={actor.id} className={styles.actorCard}>
-                  <img src='https://m.media-amazon.com/images/M/MV5BNmM0ODA2YTktYWU4Mi00ZjA3LWFjYTYtOTJlZGY2Y2QwZTUzXkEyXkFqcGdeQXVyMTYzNTg1Nzk@._V1_FMjpg_UX1000_.jpg' 
-                  id={styles.image}></img>
-                  {actor.firstName}  {actor.lastName} 
+            {movie.movieActorActors.map((actor) => (
+              <div key={actor.id} className={styles.actorCard}>
+                <div id={styles.firstDiv}>
+                  <img
+                    src="https://m.media-amazon.com/images/M/MV5BNmM0ODA2YTktYWU4Mi00ZjA3LWFjYTYtOTJlZGY2Y2QwZTUzXkEyXkFqcGdeQXVyMTYzNTg1Nzk@._V1_FMjpg_UX1000_.jpg"
+                    id={styles.image}
+                  ></img>
+
                 </div>
-              ))}        
+                <div id={styles.characterName}>
+                  <span>{actor.actor.firstName} {actor.actor.lastName}</span>
+                  <h6>{actor.character} </h6>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 };

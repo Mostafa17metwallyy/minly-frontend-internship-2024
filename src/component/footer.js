@@ -1,8 +1,9 @@
 import styles from '@/styles/footer.module.css';
 
 function Footer() {
-    return (
-      <footer>
+  return (
+    <footer>
+      <div className={styles.mainDiv}>
         <div className={styles.footerContainer}>
           <div className={styles.footerContent}>
             <a href="#">About</a>
@@ -14,9 +15,9 @@ function Footer() {
             &copy; 2023 MMDB. All rights reserved.
           </div>
         </div>
-      </footer>
-    );
-  }
-  
-  export default Footer;
-  
+      </div>
+    </footer>
+  );
+}
+
+export default Footer;
