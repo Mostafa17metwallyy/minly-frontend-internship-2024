@@ -4,6 +4,7 @@ import styles from '@/styles/movieDetails.module.css';
 import SearchAppBar from '@/component/navBar';
 import Footer from '@/component/footer';
 import StarIcon from '@mui/icons-material/Star';
+import { Typography } from '@mui/material';
 
 const MovieDetails = () => {
   const router = useRouter();
@@ -105,13 +106,13 @@ const MovieDetails = () => {
                   <img
                     src="https://m.media-amazon.com/images/M/MV5BNmM0ODA2YTktYWU4Mi00ZjA3LWFjYTYtOTJlZGY2Y2QwZTUzXkEyXkFqcGdeQXVyMTYzNTg1Nzk@._V1_FMjpg_UX1000_.jpg"
                     id={styles.image}
-                  ></img>
+                  />
                 </div>
                 <div id={styles.characterName}>
                   <span>
                     {actor.actor.firstName} {actor.actor.lastName}
                   </span>
-                  <h6>{actor.character} </h6>
+                  <Typography style={{fontSize:'10px'}}>{actor.character} </Typography>
                 </div>
               </div>
             ))}

@@ -35,7 +35,7 @@
   width: 308.35px;
   height: 416px;
   border-radius: 8px;
-  margin-right: 20px;
+  margin-inline-end: 9px;
 }
 
 .trailer {
@@ -61,11 +61,12 @@
 .castCards {
   list-style: none;
   display: flex;
-  display: grid;
+  /* display: grid; */
   text-align: center;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  width: 200%;
+  /* grid-template-columns: repeat(3, 1fr); */
+  /* gap: 20px; */
+  /* width: 200%; */
+  width: fit-content;
 }
 
 .actorCard {
@@ -74,14 +75,15 @@
   border-radius: 6px;
   margin: 15px;
   border-radius: 10px;
-  padding: 25px;
+  padding: 12px;
   text-align: center;
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 5px;
   display: flex;
-  flex-direction: row;
+  width: 225px;
   height: fit-content;
+  justify-content: center;
 }
 
 #image {
@@ -101,27 +103,23 @@
 #characterName {
   width: 100%;
   height: 100%;
-  top: 20px;
-  left: 71px;
-  gap: 3px;
   opacity: 0px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content:center;
+  display: flex;
+  margin-top: 10px;
+
 }
 
 #characterName h6 {
   color: rgba(105, 117, 134, 1);
   font-family: Inter;
   font-size: 12px;
-  font-weight: 400;
-  line-height: 14.52px;
-  text-align: left;
-  width: 22px;
-  height: 15px;
-  gap: 0px;
-  opacity: 0px;
-}
+} 
 
 #characterName span {
-  width: 58px;
+  width: 100%;
   height: 17px;
   gap: 0px;
   opacity: 0px;
@@ -138,7 +136,7 @@
 
 #starIcon {
   color: rgba(254, 182, 0, 1);
-  margin: 0px;
+  margin: 2px;
 }
 
 .movieDetailsInfo h1 {
