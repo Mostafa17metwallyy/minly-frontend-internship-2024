@@ -23,6 +23,10 @@ const MovieDetails = () => {
     }
   }, [uuid]);
 
+  const handleActorClick = (actorId) => {
+    router.push(`/actorDetails/${actorId}`);
+  };
+
   if (!movie) {
     return <div>Loading...</div>;
   }
@@ -52,22 +56,16 @@ const MovieDetails = () => {
         </div>
         <div className={styles.movieDetailsInfo}>
           <div>
-            <div style={{
-              marginBottom:"50px"
-            }}>
+            <div style={{ marginBottom: '50px' }}>
               <h1
-                style={{
-                  gap: '15px',
-                  display: 'flex',
-                  flexDirection: 'row',
-                }}
+                style={{ gap: '15px', display: 'flex', flexDirection: 'row' }}
               >
                 <span className={styles.span}>{movie.title}</span>
                 <span
                   style={{
                     color: 'rgba(105, 117, 134, 1)',
                     fontSize: '24px',
-                    marginTop:'5px'
+                    marginTop: '5px',
                   }}
                 >
                   ({movie.releaseDate})
@@ -101,7 +99,12 @@ const MovieDetails = () => {
           <h3 className={styles.movieDetailsInfo}>Cast</h3>
           <div className={styles.castCards}>
             {movie.movieActorActors.map((actor) => (
-              <div key={actor.id} className={styles.actorCard}>
+              <div
+                key={actor.id}
+                className={styles.actorCard}
+                onClick={() => handleActorClick(actor.actor.id)}
+                style={{ cursor: 'pointer' }}
+              >
                 <div id={styles.firstDiv}>
                   <img
                     src="https://m.media-amazon.com/images/M/MV5BNmM0ODA2YTktYWU4Mi00ZjA3LWFjYTYtOTJlZGY2Y2QwZTUzXkEyXkFqcGdeQXVyMTYzNTg1Nzk@._V1_FMjpg_UX1000_.jpg"
@@ -112,7 +115,9 @@ const MovieDetails = () => {
                   <span>
                     {actor.actor.firstName} {actor.actor.lastName}
                   </span>
-                  <Typography style={{fontSize:'10px'}}>{actor.character} </Typography>
+                  <Typography style={{ fontSize: '10px' }}>
+                    {actor.character}{' '}
+                  </Typography>
                 </div>
               </div>
             ))}

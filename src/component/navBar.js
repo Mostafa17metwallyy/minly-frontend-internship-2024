@@ -129,11 +129,12 @@ export default function SearchAppBar() {
             open={Boolean(anchorEl)}
             onClose={handleClose}
           >
-            <MenuItem onClick={handleGenreChange}>All</MenuItem>
+            
             <MenuItem onClick={handleGenreChange}>Action</MenuItem>
             <MenuItem onClick={handleGenreChange}>Comedy</MenuItem>
             <MenuItem onClick={handleGenreChange}>Drama</MenuItem>
             <MenuItem onClick={handleGenreChange}>Thriller</MenuItem>
+            
           </Menu>
           <Search>
             <SearchIcon />
@@ -145,15 +146,13 @@ export default function SearchAppBar() {
         </Toolbar>
       </AppBar>
       <Box sx={{ padding: 2 }}>
-        {records.length > 0 ? (
+        {
           records.map((movie) => (
             <Typography key={movie.id} variant="body1">
               {movie.title}
             </Typography>
           ))
-        ) : (
-          <Typography variant="body1">No movies found</Typography>
-        )}
+        }
       </Box>
     </Box>
   );
