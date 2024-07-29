@@ -1,28 +1,68 @@
-
 .actorDetails {
   display: flex;
   width: 1170px;
-  height: 1160px;
-  top: 176px;
-  left: 135px;
   gap: 20px;
-  border-radius: 10px 0px 0px 0px;
-  opacity: 0px;
+  margin: 40px auto;
+  padding: 20px;
   border-radius: 15px;
-  justify-content: center;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  color: rgba(0, 48, 85, 1);
 }
 
 .actorPicture {
-  width: 338px;
-  height: 456px;
-  top: 32px;
-  left: 32px;
-  border-radius: 10px 0px 0px 0px;
-  opacity: 0px;
-  border-radius:15px ;
-  margin: 15px;
+  width: 300px;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
 }
 
-.personalInfo{
-    margin-left: 20px;
+.personalInfo {
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.actorInfo {
+  flex: 1;
+  margin-left: 20px;
+}
+
+.actorInfo h1 {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.actorInfo h3 {
+  font-size: 1.5em;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.actorInfo p {
+  line-height: 1.6;
+}
+
+.actorInfo ul {
+  padding: 0;
+}
+
+.actorInfo ul li {
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.actorInfo ul li span {
+  font-weight: bold;
+}
+
+#awards {
+  list-style: none;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+#acting li {
+    padding: 10px;
 }

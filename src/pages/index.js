@@ -12,7 +12,7 @@ import Footer from '@/component/footer';
 export default function Home() {
   const [records, setRecords] = useState([]);
   const [page, setPage] = useState(1);
-  const [sort, setSort] = useState('');
+  const [sort, setSort] = useState('None');
  
 
   const LIMIT = 8;
@@ -56,8 +56,8 @@ export default function Home() {
             <div className={styles.subHeader}>
               <h2>All Movies</h2>
               <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
-                <InputLabel id="demo-select-small-label">Sort By</InputLabel>
-                <Select onChange={handleSortChange} className={styles.select}>
+                <InputLabel id="demo-select-small-label"></InputLabel>
+                <Select onChange={handleSortChange} className={styles.select} value={sort}>
                   <MenuItem value="None">None</MenuItem>
                   <MenuItem value="rating">Rating</MenuItem>
                   <MenuItem value="releaseDate">Release Date</MenuItem>

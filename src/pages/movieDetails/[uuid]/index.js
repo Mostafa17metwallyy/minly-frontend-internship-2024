@@ -76,15 +76,20 @@ const MovieDetails = () => {
                   display: 'flex',
                   alignItems: 'center',
                   fontSize: '15px',
-                  gap: '3px',
+                  gap: '10px',
                   color: 'rgba(0, 48, 85, 1)',
                 }}
               >
                 <span id={styles.starIcon}>
                   <StarIcon />
                 </span>
-                {movie.rating} {movie.genre}
+                <></>
+                {movie.rating} 
+                <div>
+                {movie.genre} <> {movie.duration}m</>
+                </div>
               </div>
+
             </div>
             <p>
               <span className={styles.span}> Overview:</span>
@@ -116,7 +121,7 @@ const MovieDetails = () => {
                     {actor.actor.firstName} {actor.actor.lastName}
                   </span>
                   <Typography style={{ fontSize: '10px' }}>
-                    {actor.character}{' '}
+                    {actor.character}
                   </Typography>
                 </div>
               </div>

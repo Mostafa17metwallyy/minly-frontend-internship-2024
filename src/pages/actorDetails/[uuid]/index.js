@@ -56,7 +56,7 @@ const ActorDetails = () => {
             <h3>Biography</h3>
             <p>{actor.bio}</p>
           </div>
-          <div>
+          <div id={styles.acting}>
             <h3>Acting</h3>
             {actor.movieActorActors.map((acting) => (
               <ul>
@@ -70,7 +70,7 @@ const ActorDetails = () => {
             <br />
             <h3>Awards and nominations </h3>
             {actor.awards.map((acting) => (
-              <ul>
+              <ul id={styles.awards}>
                 <li>{acting.name}</li>
               </ul>
             ))}
