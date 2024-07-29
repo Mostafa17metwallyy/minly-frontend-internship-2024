@@ -56,6 +56,25 @@ const ActorDetails = () => {
             <h3>Biography</h3>
             <p>{actor.bio}</p>
           </div>
+          <div>
+            <h3>Acting</h3>
+            {actor.movieActorActors.map((acting) => (
+              <ul>
+                <li>
+                  {acting.movie.title} <span>as</span> {acting.character}
+                </li>
+              </ul>
+            ))}
+          </div>
+          <div>
+            <br />
+            <h3>Awards and nominations </h3>
+            {actor.awards.map((acting) => (
+              <ul>
+                <li>{acting.name}</li>
+              </ul>
+            ))}
+          </div>
         </div>
       </div>
       <Footer />
