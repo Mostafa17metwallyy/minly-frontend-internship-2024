@@ -23,8 +23,8 @@ const MovieDetails = () => {
     }
   }, [uuid]);
 
-  const handleActorClick = (actorId) => {
-    router.push(`/actorDetails/${actorId}`);
+  const handleActorClick = (actorUuid) => {
+    router.push(`/actorDetails/${actorUuid}`);
   };
 
   if (!movie) {
@@ -102,7 +102,7 @@ const MovieDetails = () => {
               <div
                 key={actor.id}
                 className={styles.actorCard}
-                onClick={() => handleActorClick(actor.actor.id)}
+                onClick={() => handleActorClick(actor.actor.uuId)}
                 style={{ cursor: 'pointer' }}
               >
                 <div id={styles.firstDiv}>

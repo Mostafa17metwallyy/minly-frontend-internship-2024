@@ -1,0 +1,28 @@
+
+.actorDetails {
+  display: flex;
+  width: 1170px;
+  height: 1160px;
+  top: 176px;
+  left: 135px;
+  gap: 20px;
+  border-radius: 10px 0px 0px 0px;
+  opacity: 0px;
+  border-radius: 15px;
+  justify-content: center;
+}
+
+.actorPicture {
+  width: 338px;
+  height: 456px;
+  top: 32px;
+  left: 32px;
+  border-radius: 10px 0px 0px 0px;
+  opacity: 0px;
+  border-radius:15px ;
+  margin: 15px;
+}
+
+.personalInfo{
+    margin-left: 20px;
+}
