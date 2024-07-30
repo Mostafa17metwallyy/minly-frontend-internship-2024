@@ -8,6 +8,8 @@ import { FormControl } from '@mui/material';
 import SearchAppBar from '@/component/navBar';
 import styles from '@/styles/movie.module.css';
 import Footer from '@/component/footer';
+import { LIMIT } from '@/const/const';
+
 
 export default function Home() {
   const [records, setRecords] = useState([]);
@@ -15,7 +17,6 @@ export default function Home() {
   const [sort, setSort] = useState('None');
  
 
-  const LIMIT = 8;
 
   const handleChange = (event, value) => {
     setPage(value);
@@ -28,14 +29,15 @@ export default function Home() {
 
 
   useEffect(() => {
-    fetch(`http://localhost:3000/movies/paginated?page=${page}&limit=${LIMIT}`)
+    console.log(`${process.env.NEXT_PUBLIC_APP_PATH}`, "hello")
+    fetch(`${process.env.NEXT_PUBLIC_APP_PATH}/movies/paginated?page=${page}&limit=${LIMIT}`)
       .then((response) => response.json())
       .then((response) => setRecords(response.data))
       .catch((err) => console.log(err));
   }, [page]);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/movies/paginated?sortBy=${sort}`)
+    fetch(`${process.env.REACT_APP_PATH}/movies/paginated?sortBy=${sort}`)
       .then((response) => response.json())
       .then((response) => setRecords(response.data))
       .catch((err) => console.log(err));

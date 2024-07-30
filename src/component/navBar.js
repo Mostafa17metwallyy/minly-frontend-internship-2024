@@ -48,14 +48,14 @@ export default function SearchAppBar() {
   };
 
   const handleGenreChange = (event) => {
-    const selectedGenre = event.target.innerText;
+    setGenre(event.target.innerText) 
     setGenre(selectedGenre);
     handleClose();
   };
 
   useEffect(() => {
     if (genre) {
-      fetch(`http://localhost:3000/movies/genre/${genre}`)
+      fetch(`${process.env.NEXT_PUBLIC_APP_PATH}/movies/genre/${genre}`)
         .then((response) => {
           if (!response.ok) {
             throw new Error('Network response was not ok');
@@ -68,6 +68,7 @@ export default function SearchAppBar() {
         .catch((err) => console.log('Fetch error:', err));
     }
   }, [genre]);
+  
 
   return (
     <Box sx={{ flexGrow: 1 }}>
