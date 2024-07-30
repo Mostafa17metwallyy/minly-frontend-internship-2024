@@ -84,12 +84,11 @@ const MovieDetails = () => {
                   <StarIcon />
                 </span>
                 <></>
-                {movie.rating} 
+                {movie.rating}
                 <div>
-                {movie.genre} <> {movie.duration}m</>
+                  {movie.genre} <> {movie.duration}m</>
                 </div>
               </div>
-
             </div>
             <p>
               <span className={styles.span}> Overview:</span>
@@ -105,7 +104,7 @@ const MovieDetails = () => {
           <div className={styles.castCards}>
             {movie.movieActorActors.map((actor) => (
               <div
-                key={actor.id}
+                key={`${actor.id}-${actor.character}`}
                 className={styles.actorCard}
                 onClick={() => handleActorClick(actor.actor.uuId)}
                 style={{ cursor: 'pointer' }}

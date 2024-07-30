@@ -59,7 +59,7 @@ const ActorDetails = () => {
           <div id={styles.acting}>
             <h3>Acting</h3>
             {actor.movieActorActors.map((acting) => (
-              <ul>
+              <ul key={acting.movie.id}>
                 <li>
                   {acting.movie.title} <span>as</span> {acting.character}
                 </li>
@@ -70,7 +70,7 @@ const ActorDetails = () => {
             <br />
             <h3>Awards and nominations </h3>
             {actor.awards.map((acting) => (
-              <ul id={styles.awards}>
+              <ul id={styles.awards} key={index}>
                 <li>{acting.name}</li>
               </ul>
             ))}
