@@ -49,14 +49,12 @@ export default function SearchAppBar() {
 
   const handleGenreChange = (event) => {
     const selectedGenre = event.target.innerText;
-    console.log('Selected genre:', selectedGenre);
     setGenre(selectedGenre);
     handleClose();
   };
 
   useEffect(() => {
     if (genre) {
-      console.log('Fetching movies for genre:', genre);
       fetch(`http://localhost:3000/movies/genre/${genre}`)
         .then((response) => {
           if (!response.ok) {
@@ -65,7 +63,6 @@ export default function SearchAppBar() {
           return response.json();
         })
         .then((data) => {
-          console.log('Movies fetched:', data);
           setRecords(data);
         })
         .catch((err) => console.log('Fetch error:', err));
@@ -83,7 +80,7 @@ export default function SearchAppBar() {
             variant="h6"
             noWrap
             component="a"
-            href="http://localhost:3001"
+            href="/"
             sx={{
               color: 'rgba(65, 140, 251, 1)',
               fontFamily: 'Rubik',
@@ -101,7 +98,7 @@ export default function SearchAppBar() {
             variant="body1"
             noWrap
             component="a"
-            href="http://localhost:3001"
+            href="/"
             sx={{
               color: 'rgba(0, 0, 0, 0.87)',
               marginRight: 4,
