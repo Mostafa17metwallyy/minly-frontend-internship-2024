@@ -1,5 +1,6 @@
+// src/pages/index.js
 import MoviesList from '../component/movieList';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Pagination from '@mui/material/Pagination';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
@@ -9,14 +10,15 @@ import SearchAppBar from '@/component/navBar';
 import styles from '@/styles/movie.module.css';
 import Footer from '@/component/footer';
 import { LIMIT } from '@/const/const';
-
+import usePaginatedMovies from '../hooks/usePaginatedMovies';
+import useSortedMovies from '../hooks/useSortedMovies';
 
 export default function Home() {
-  const [records, setRecords] = useState([]);
   const [page, setPage] = useState(1);
   const [sort, setSort] = useState('None');
- 
 
+  const { records: paginatedRecords } = usePaginatedMovies(page, LIMIT);
+  const { records: sortedRecords, error: sortError } = useSortedMovies(sort);
 
   const handleChange = (event, value) => {
     setPage(value);
@@ -26,24 +28,7 @@ export default function Home() {
     setSort(event.target.value);
   };
 
-
-
-  useEffect(() => {
-    console.log(`${process.env.NEXT_PUBLIC_APP_PATH}`, "hello")
-    fetch(`${process.env.NEXT_PUBLIC_APP_PATH}/movies/paginated?page=${page}&limit=${LIMIT}`)
-      .then((response) => response.json())
-      .then((response) => setRecords(response.data))
-      .catch((err) => console.log(err));
-  }, [page]);
-
-  useEffect(() => {
-    fetch(`${process.env.REACT_APP_PATH}/movies/paginated?sortBy=${sort}`)
-      .then((response) => response.json())
-      .then((response) => setRecords(response.data))
-      .catch((err) => console.log(err));
-  }, [sort]);
-
-  
+  const records = sort === 'None' ? paginatedRecords : sortedRecords;
 
   return (
     <>
@@ -52,7 +37,7 @@ export default function Home() {
           <div className={styles.innerContainer}>
             <div className={styles.header}>
               <h1>
-                <SearchAppBar/>
+                <SearchAppBar />
               </h1>
             </div>
             <div className={styles.subHeader}>
@@ -77,7 +62,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <Footer/>
+        <Footer />
       </div>
     </>
   );
