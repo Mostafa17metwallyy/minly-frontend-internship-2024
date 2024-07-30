@@ -1,3 +1,4 @@
+// src/components/SearchAppBar.js
 import * as React from 'react';
 import { styled } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
@@ -10,7 +11,8 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import SearchIcon from '@mui/icons-material/Search';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import useMoviesByGenre from '../hooks/useMovieByGenre';
 
 const Search = styled('div')(({ theme }) => ({
   marginLeft: 'auto',
@@ -37,7 +39,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 export default function SearchAppBar() {
   const [anchorEl, setAnchorEl] = useState(null);
   const [genre, setGenre] = useState('');
-  const [records, setRecords] = useState([]);
+  const { records, error } = useMoviesByGenre(genre);
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -48,27 +50,9 @@ export default function SearchAppBar() {
   };
 
   const handleGenreChange = (event) => {
-    setGenre(event.target.innerText) 
-    setGenre(selectedGenre);
+    setGenre(event.target.innerText);
     handleClose();
   };
-
-  useEffect(() => {
-    if (genre) {
-      fetch(`${process.env.NEXT_PUBLIC_APP_PATH}/movies/genre/${genre}`)
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error('Network response was not ok');
-          }
-          return response.json();
-        })
-        .then((data) => {
-          setRecords(data);
-        })
-        .catch((err) => console.log('Fetch error:', err));
-    }
-  }, [genre]);
-  
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -127,12 +111,10 @@ export default function SearchAppBar() {
             open={Boolean(anchorEl)}
             onClose={handleClose}
           >
-            
             <MenuItem onClick={handleGenreChange}>Action</MenuItem>
             <MenuItem onClick={handleGenreChange}>Comedy</MenuItem>
             <MenuItem onClick={handleGenreChange}>Drama</MenuItem>
             <MenuItem onClick={handleGenreChange}>Thriller</MenuItem>
-            
           </Menu>
           <Search>
             <SearchIcon />
@@ -144,13 +126,17 @@ export default function SearchAppBar() {
         </Toolbar>
       </AppBar>
       <Box sx={{ padding: 2 }}>
-        {
+        {error ? (
+          <Typography variant="body1" color="error">
+            {error.message}
+          </Typography>
+        ) : (
           records.map((movie) => (
             <Typography key={movie.id} variant="body1">
               {movie.title}
             </Typography>
           ))
-        }
+        )}
       </Box>
     </Box>
   );
