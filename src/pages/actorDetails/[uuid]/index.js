@@ -68,12 +68,16 @@ const ActorDetails = () => {
           </div>
           <div>
             <br />
-            <h3>Awards and nominations </h3>
-            {actor.awards.map((acting) => (
-              <ul id={styles.awards} key={index}>
-                <li>{acting.name}</li>
-              </ul>
-            ))}
+            <h3>Awards and Nominations</h3>
+            {actor.awards.length > 0 ? (
+              actor.awards.map((acting, index) => (
+                <ul id={styles.awards} key={index}>
+                  <li>{acting.name}</li>
+                </ul>
+              ))
+            ) : (
+              <p>This actor has no awards</p>
+            )}
           </div>
         </div>
       </div>
